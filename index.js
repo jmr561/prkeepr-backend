@@ -10,14 +10,6 @@ app.use(cors());
 
 mongoose.connect("mongodb://localhost:27017/PRkeePR");
 
-// app.get("/", (req, res) => {
-//   res.status(200).json({ message: "Hi" });
-// });
-
-// app.get("/hello", (req, res) => {
-//   res.status(200).json({ message: "Hello" });
-// });
-
 const accountRoutes = require("./routes/account");
 app.use(accountRoutes);
 

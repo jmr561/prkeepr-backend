@@ -15,7 +15,7 @@ const User = mongoose.model("User", {
     pushPress: { type: Number, min: 0, max: 500, default: 0 },
     pushJerk: { type: Number, min: 0, max: 500, default: 0 },
     deadLift: { type: Number, min: 0, max: 500, default: 0 },
-    Clean: { type: Number, min: 0, max: 500, default: 0 },
+    clean: { type: Number, min: 0, max: 500, default: 0 },
     powerClean: { type: Number, min: 0, max: 500, default: 0 },
     cleanJerk: { type: Number, min: 0, max: 500, default: 0 },
     hangPowerSnatch: { type: Number, min: 0, max: 500, default: 0 },
