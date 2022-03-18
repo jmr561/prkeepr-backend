@@ -4,6 +4,16 @@ const formidable = require("express-formidable");
 router.use(formidable());
 const User = require("../models/User");
 
+router.post("/prs", async (req, res) => {
+  try {
+    const token = req.fields.token;
+    const user = await User.findOne({ token: token });
+    res.json(user);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
 router.put("/update", async (req, res) => {
   console.log("route : /update/");
   console.log(req.fields);
@@ -24,7 +34,6 @@ router.put("/update", async (req, res) => {
     const powerSnatchPR = req.fields.powerSnatchPR;
     const squatSnatchPR = req.fields.squatSnatchPR;
     const maxPullupsPR = req.fields.maxPullupsPR;
-    const notes = req.fields.notes;
 
     const userToUpdate = await User.findByIdAndUpdate(
       userID,
@@ -44,7 +53,6 @@ router.put("/update", async (req, res) => {
           powerSnatch: powerSnatchPR,
           squatSnatch: squatSnatchPR,
           maxPullups: maxPullupsPR,
-          notes: notes,
         },
       },
       { new: true, runValidators: true }

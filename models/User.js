@@ -22,7 +22,6 @@ const User = mongoose.model("User", {
     powerSnatch: { type: Number, min: 0, max: 500, default: 0 },
     squatSnatch: { type: Number, min: 0, max: 500, default: 0 },
     maxPullups: { type: Number, min: 0, max: 500, default: 0 },
-    notes: { type: String, default: "", maxLength: 300 },
   },
   token: String,
   hash: String,
